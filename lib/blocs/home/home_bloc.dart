@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
+import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'package:flutter_social_login/exports.dart';
 import 'package:kakao_flutter_sdk/all.dart';
 import 'package:meta/meta.dart';
@@ -18,6 +19,10 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
       switch (event.authType) {
         case AuthType.kakao:
           yield* _loginKakao();
+          return;
+
+        case AuthType.facebook:
+          yield* _loginFacebook();
           return;
 
         default:
@@ -49,6 +54,27 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
       );
     } catch (e) {
       yield HomeAuthenticated(success: false, authType: AuthType.kakao);
+    }
+  }
+
+  Stream<HomeState> _loginFacebook() async* {
+    try {
+      final result = await FacebookAuth.instance.login();
+      if (result.status != LoginStatus.success) {
+        yield HomeAuthenticated(success: false, authType: AuthType.kakao);
+        return;
+      }
+
+      final userData = await FacebookAuth.instance.getUserData();
+      final userId = userData['id']!.toString();
+
+      yield HomeAuthenticated(
+        success: true,
+        authType: AuthType.kakao,
+        userId: userId,
+      );
+    } catch (e) {
+      yield HomeAuthenticated(success: false, authType: AuthType.facebook);
     }
   }
 }

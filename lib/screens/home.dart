@@ -41,7 +41,7 @@ class HomeScreen extends StatelessWidget {
       ),
       child: ElevatedButton(
         onPressed: () {
-          context.read<HomeBloc>().requestAuthentication(AuthType.kakao);
+          context.read<HomeBloc>().requestAuthentication(authType);
         },
         style: ElevatedButton.styleFrom(
           primary: authType.brandColor,

@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <string name="app_name">Flutter Social Login</string>
+
     <!-- Kakao login -->
-    <string name="kakao_login_scheme">kakao{YOUR_KAKAO_NATIVE_APP_KEY}</string>
+    <string name="kakao_login_scheme">kakao{your_kakao_native_app_key}</string>
+
+    <!-- Facebook login -->
+    <string name="facebook_app_id">your_facebook_app_id</string>
+    <string name="fb_login_protocol_scheme">fb{your_facebook_app_id}</string>
 
 </resources>

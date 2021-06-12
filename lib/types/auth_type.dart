@@ -3,6 +3,7 @@ import 'package:flutter_social_login/exports.dart';
 
 enum AuthType {
   kakao,
+  facebook,
 }
 
 extension AuthTypeExtension on AuthType {
@@ -10,6 +11,8 @@ extension AuthTypeExtension on AuthType {
     switch (this) {
       case AuthType.kakao:
         return S.current.loginKakao;
+      case AuthType.facebook:
+        return S.current.loginFacebook;
       default:
         throw UnsupportedError('Invalid auth type.');
     }
@@ -19,6 +22,8 @@ extension AuthTypeExtension on AuthType {
     switch (this) {
       case AuthType.kakao:
         return Palettes.kakaoLoginMessageColor;
+      case AuthType.facebook:
+        return Palettes.facebookLoginMessageColor;
       default:
         throw UnsupportedError('Invalid auth type.');
     }
@@ -28,6 +33,8 @@ extension AuthTypeExtension on AuthType {
     switch (this) {
       case AuthType.kakao:
         return Palettes.kakaoBrandColor;
+      case AuthType.facebook:
+        return Palettes.facebookBrandColor;
       default:
         throw UnsupportedError('Invalid auth type.');
     }
@@ -37,6 +44,8 @@ extension AuthTypeExtension on AuthType {
     switch (this) {
       case AuthType.kakao:
         return Assets.kakaoIcon;
+      case AuthType.facebook:
+        return Assets.facebookIcon;
       default:
         throw UnsupportedError('Invalid auth type.');
     }

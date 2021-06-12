@@ -7,7 +7,7 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   // Initialize Kakao SDK.
-  KakaoContext.clientId = 'YOUR_KAKAO_NATIVE_APP_KEY';
+  KakaoContext.clientId = 'your_kakao_native_app_key';
 
   // Setup system configurations.
   await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
