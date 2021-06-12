@@ -1,8 +1,12 @@
 buildscript {
-    ext.kotlin_version = '1.4.20'
+    ext {
+        kotlin_version = '1.4.20'
+    }
+
     repositories {
         google()
         mavenCentral()
+        maven { url 'https://devrepo.kakao.com/nexus/content/groups/public/' }
     }
 
     dependencies {
@@ -15,6 +19,7 @@ allprojects {
     repositories {
         google()
         mavenCentral()
+        maven { url 'https://devrepo.kakao.com/nexus/content/groups/public/' }
     }
 }
 

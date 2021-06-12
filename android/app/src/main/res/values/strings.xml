@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Kakao login -->
+    <string name="kakao_login_scheme">kakao{YOUR_KAKAO_NATIVE_APP_KEY}</string>
+
+</resources>
