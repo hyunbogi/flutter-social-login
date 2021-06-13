@@ -3,8 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_social_login/exports.dart';
 
-export 'app_navigator.dart';
-
 part 'handlers.dart';
 
 part 'paths.dart';

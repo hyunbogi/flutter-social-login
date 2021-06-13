@@ -2,6 +2,7 @@ import UIKit
 import Flutter
 import KakaoSDKCommon
 import KakaoSDKAuth
+import NaverThirdPartyLogin
 
 @UIApplicationMain
 @objc class AppDelegate: FlutterAppDelegate {
@@ -15,6 +16,9 @@ import KakaoSDKAuth
         if (AuthApi.isKakaoTalkLoginUrl(url)) {
             return AuthController.handleOpenUrl(url: url)
         }
-        return false
+        if (NaverThirdPartyLoginConnection.getSharedInstance().isNaverThirdPartyLoginAppschemeURL(url)) {
+            return NaverThirdPartyLoginConnection.getSharedInstance().application(app, open: url, options: options)
+        }
+        return super.application(app, open: url, options: options)
     }
 }

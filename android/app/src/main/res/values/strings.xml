@@ -4,10 +4,15 @@
     <string name="app_name">Flutter Social Login</string>
 
     <!-- Kakao login -->
-    <string name="kakao_login_scheme">kakao{your_kakao_native_app_key}</string>
+    <string name="kakao_login_scheme" translatable="false">kakao{your_kakao_native_app_key}</string>
 
     <!-- Facebook login -->
-    <string name="facebook_app_id">your_facebook_app_id</string>
-    <string name="fb_login_protocol_scheme">fb{your_facebook_app_id}</string>
+    <string name="facebook_app_id" translatable="false">your_facebook_app_id</string>
+    <string name="fb_login_protocol_scheme" translatable="false">fb{your_facebook_app_id}</string>
+
+    <!-- Naver login -->
+    <string name="naver_client_id" translatable="false">your_naver_client_id</string>
+    <string name="naver_client_secret" translatable="false">your_naver_client_secret</string>
+    <string name="naver_client_name" translatable="false">your_naver_client_name</string>
 
 </resources>

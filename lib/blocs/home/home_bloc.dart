@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:bloc/bloc.dart';
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
+import 'package:flutter_naver_login/flutter_naver_login.dart';
 import 'package:flutter_social_login/exports.dart';
 import 'package:kakao_flutter_sdk/all.dart';
 import 'package:meta/meta.dart';
@@ -23,6 +24,10 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
 
         case AuthType.facebook:
           yield* _loginFacebook();
+          return;
+
+        case AuthType.naver:
+          yield* _loginNaver();
           return;
 
         default:
@@ -75,6 +80,24 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
       );
     } catch (e) {
       yield HomeAuthenticated(success: false, authType: AuthType.facebook);
+    }
+  }
+
+  Stream<HomeState> _loginNaver() async* {
+    try {
+      final result = await FlutterNaverLogin.logIn();
+      if (result.status != NaverLoginStatus.loggedIn) {
+        yield HomeAuthenticated(success: false, authType: AuthType.naver);
+        return;
+      }
+
+      yield HomeAuthenticated(
+        success: true,
+        authType: AuthType.naver,
+        userId: result.account.id,
+      );
+    } catch (e) {
+      yield HomeAuthenticated(success: false, authType: AuthType.naver);
     }
   }
 }

@@ -8,6 +8,22 @@
         android:icon="@mipmap/ic_launcher"
         android:label="flutter_social_login">
 
+        <meta-data
+            android:name="flutterEmbedding"
+            android:value="2" />
+
+        <!-- START: Naver login -->
+        <meta-data
+            android:name="com.naver.sdk.clientId"
+            android:value="@string/naver_client_id" />
+        <meta-data
+            android:name="com.naver.sdk.clientSecret"
+            android:value="@string/naver_client_secret" />
+        <meta-data
+            android:name="com.naver.sdk.clientName"
+            android:value="@string/naver_client_name" />
+        <!-- END: Naver login -->
+
         <activity
             android:name=".MainActivity"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
@@ -29,6 +45,7 @@
             </intent-filter>
         </activity>
 
+        <!-- START: Kakao login -->
         <activity android:name="com.kakao.sdk.auth.AuthCodeHandlerActivity">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
@@ -42,7 +59,9 @@
                     android:scheme="@string/kakao_login_scheme" />
             </intent-filter>
         </activity>
+        <!-- END: Kakao login -->
 
+        <!-- START: Facebook login -->
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
             android:value="@string/facebook_app_id" />
@@ -65,10 +84,7 @@
                 <data android:scheme="@string/fb_login_protocol_scheme" />
             </intent-filter>
         </activity>
-
-        <meta-data
-            android:name="flutterEmbedding"
-            android:value="2" />
+        <!-- END: Facebook login -->
 
     </application>
 
