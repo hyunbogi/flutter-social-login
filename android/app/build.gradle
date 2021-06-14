@@ -69,6 +69,5 @@ flutter {
 
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-    implementation "com.kakao.sdk:v2-user:2.5.1"
     implementation 'com.facebook.android:facebook-login:9.1.0'
 }
