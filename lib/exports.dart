@@ -1,8 +1,9 @@
+export 'app.dart';
 export 'blocs/blocs.dart';
 export 'di/injector.dart';
 export 'generated/l10n.dart';
+export 'models/models.dart';
 export 'routes/routes.dart';
 export 'screens/screens.dart';
-export 'types/types.dart';
+export 'services/services.dart';
 export 'utils/utils.dart';
-export 'app.dart';
