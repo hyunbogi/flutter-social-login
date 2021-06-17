@@ -1,4 +1,4 @@
-import 'package:fluro/fluro.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_social_login/exports.dart';
 import 'package:get_it/get_it.dart';
 
@@ -7,9 +7,9 @@ class Injector {
 
   static GetIt get _instance => GetIt.instance;
 
-  static FluroRouter get router => _instance.get<FluroRouter>();
+  static BlocObserver get blocObserver => _instance.get<BlocObserver>();
 
-  static AuthService getAuthType(AuthType authType) {
+  static AuthService getAuthService(AuthType authType) {
     switch (authType) {
       case AuthType.kakao:
         return _instance.get<AuthService>(instanceName: 'kakao');
@@ -25,7 +25,7 @@ class Injector {
   static void registerObjects() {
     // Register third-party objects.
     {
-      _instance.registerSingleton<FluroRouter>(FluroRouter());
+      _instance.registerSingleton<BlocObserver>(AppBlocObserver());
     }
 
     // Register authentication service objects.

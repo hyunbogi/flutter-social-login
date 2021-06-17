@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_social_login/exports.dart';
 
@@ -24,7 +25,10 @@ class Application extends StatelessWidget {
       onGenerateRoute: AppRoutes.routeGenerator,
       builder: (context, child) => MediaQuery(
         data: MediaQuery.of(context).copyWith(textScaleFactor: 1.0),
-        child: child!,
+        child: BlocProvider<AuthenticationBloc>(
+          create: (context) => AuthenticationBloc(),
+          child: child!,
+        ),
       ),
     );
   }

@@ -13,13 +13,12 @@ class HomeScreen extends StatelessWidget {
         margin: const EdgeInsets.symmetric(
           horizontal: 20.0,
         ),
-        child: BlocListener<HomeBloc, HomeState>(
+        child: BlocListener<AuthenticationBloc, AuthenticationState>(
           listener: (context, state) {
-            if (state is HomeAuthenticated) {
-              final message = state.success
-                  ? S.current.loginSuccess(state.userId!)
-                  : S.current.loginFailed;
-              Fluttertoast.showToast(msg: message);
+            if (state is AuthenticationSuccess) {
+              Fluttertoast.showToast(msg: S.current.loginSuccess(state.userId));
+            } else if (state is AuthenticationFailed) {
+              Fluttertoast.showToast(msg: S.current.loginFailed);
             }
           },
           child: Column(
@@ -41,7 +40,7 @@ class HomeScreen extends StatelessWidget {
       ),
       child: ElevatedButton(
         onPressed: () {
-          context.read<HomeBloc>().requestAuthentication(authType);
+          context.read<AuthenticationBloc>().requestAuthentication(authType);
         },
         style: ElevatedButton.styleFrom(
           primary: authType.brandColor,
