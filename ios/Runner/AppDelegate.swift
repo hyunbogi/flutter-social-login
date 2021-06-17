@@ -9,6 +9,9 @@ import NaverThirdPartyLogin
     override func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
     ) -> Bool {
         GeneratedPluginRegistrant.register(with: self)
+        
+        KakaoSDKCommon.initSDK(appKey: "your_kakao_native_app_key")
+        
         return super.application(application, didFinishLaunchingWithOptions: launchOptions)
     }
     
