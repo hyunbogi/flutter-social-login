@@ -26,5 +26,5 @@ void main() async {
   // Initialize Kakao SDK.
   KakaoContext.clientId = 'your_kakao_native_app_key';
 
-  runApp(Application());
+  runApp(const Application());
 }

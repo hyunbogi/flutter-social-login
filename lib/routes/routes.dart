@@ -22,8 +22,8 @@ class AppRoutes {
       _AppPath.root: _rootHandler,
     };
 
-    mappings.entries.forEach((entry) {
+    for (final entry in mappings.entries) {
       _router.define(entry.key, handler: entry.value);
-    });
+    }
   }
 }
